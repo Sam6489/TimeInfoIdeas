@@ -36,6 +36,8 @@ public:
 	bool dateConflict( TimeInfo otherDate );
 
 	bool timeConflict( TimeInfo otherTime );
+
+	bool weekConflict( TimeInfo otherWeek );
 };
 
 TimeInfo::TimeInfo( )
@@ -207,6 +209,21 @@ bool TimeInfo::timeConflict( TimeInfo otherTime )
 	else
 	{
 		toReturn = false;
+	}
+	return toReturn;
+}
+
+bool TimeInfo::weekConflict( TimeInfo otherWeek )
+{
+	bool toReturn = false;
+	int i = 0;
+	while ( i < 7 )
+	{
+		if ( days[i] == otherWeek.days[i] )
+		{
+			toReturn = true;
+			i = 7;
+		}
 	}
 	return toReturn;
 }
