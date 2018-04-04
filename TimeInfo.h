@@ -31,7 +31,7 @@ public:
 	void parseWeek( string days, bool toFill[7] );
 
 		//Fills variables w/ same code as overloaded constructor
-	void fillAll( string sdate, string edate, int stime, int etime, string days );
+	void setAll( string sdate, string edate, int stime, int etime, string days );
 
 	bool dateConflict( TimeInfo otherDate );		//Checks for conflicting dates
 
@@ -169,7 +169,7 @@ void TimeInfo::parseWeek( string days, bool toFill[7] )
 	}
 }
 
-void TimeInfo::fillAll( string sdate, string edate, int stime, int etime, string days )
+void TimeInfo::setAll( string sdate, string edate, int stime, int etime, string days )
 {
 	parseDate( sdate, sday, smonth, syear );
 	parseDate( edate, eday, emonth, eyear );

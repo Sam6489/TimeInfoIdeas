@@ -8,6 +8,7 @@
 #include <iostream>
 #include "ParseInfo.h"
 #include "CommonInfo.h"
+#include "TimeInfo.h"
 using namespace std;
 
 //CourseInfo: Contains all members that would be unique to each course as well as appropriate methods for filling and testing.
@@ -24,6 +25,8 @@ private:
 	string endD;// Day of year class ends (int?)
 	CommonInfo *myCommons;// link to correct element in linked list of CommonInfo
 	CourseInfo *link;// link to element of CourseInfo for CRN comparison
+
+	TimeInfo time;
 public:
 	//Getters
 	int getCRN ( )
