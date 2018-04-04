@@ -32,6 +32,8 @@ public:
 
 		//Fills variables w/ same code as overloaded constructor
 	void fillAll( string sdate, string edate, int stime, int etime, string days );
+
+	bool dateConflict( TimeInfo otherDate );
 };
 
 TimeInfo::TimeInfo( )
@@ -168,4 +170,23 @@ void TimeInfo::fillAll( string sdate, string edate, int stime, int etime, string
 	this->stime = stime;
 	this->etime = etime;
 	parseWeek( days, this->days );
+}
+
+bool TimeInfo::dateConflict( TimeInfo otherDate )
+{
+	bool toReturn;
+	if ( sday <= otherDate.eday&&smonth <= otherDate.emonth&&syear <= otherDate.eyear )
+	{
+		toReturn = true;
+	}
+	else if ( eday >= otherDate.sday&&emonth >= otherDate.smonth&&eyear >= otherDate.eyear )
+	{
+		toReturn = true;
+	}
+	else
+	{
+		toReturn = false;
+	}
+
+	return toReturn;
 }
