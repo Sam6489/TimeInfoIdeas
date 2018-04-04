@@ -10,6 +10,7 @@
 #include "CommonInfo.h"
 #include "ParseInfo.h"
 #include "CommonCapsule.h"
+#include "RoomInfo.h"
 using namespace std;
 
 const int MAX = 2500;// Maximum number of lines that will be read in.
@@ -19,8 +20,10 @@ class AllData
 {
 private:
 	int courseInfoSize;// Number of Classes on their own line
+	int roomInfoSize;
 	CourseInfo *myCourses;// Dynamic array of Classes
 	CommonCapsule myCommons;// Common capsule for the implementation of non-recursive search and delete
+	RoomInfo *myRooms;
 public:
 	//Getters
 	int getCourseInfoSize( )

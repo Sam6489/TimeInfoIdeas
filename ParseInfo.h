@@ -13,4 +13,5 @@ class ParseInfo
 public:
 	void parseAll( string target[16], string rawInput );// splits apart one line with comma delimeters 
 	int stringToNumber( string rawInput );// an alpha to numeric conversion 
+	string convertToMiltary( string time );
 };

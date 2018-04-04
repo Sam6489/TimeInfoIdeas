@@ -17,7 +17,8 @@ private:
 	int eyear;
 	bool days[7];
 
-	const string months[12]= { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+	const string months[12] =
+	{ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 public:
 	TimeInfo( );		//Default constructor
 

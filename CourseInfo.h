@@ -16,7 +16,7 @@ class CourseInfo
 {
 private:
 	int CRN;// 5 digit course reference number
-	int section;// 3 digit section: 601,602, etc...
+	string section;// 3 digit section: 601,602, etc...
 	string days;// Days of week class meets
 	int startT;// Military time class start time
 	int endT;// Military time class end time
@@ -33,7 +33,7 @@ public:
 	{
 		return CRN;
 	}
-	int getSection( )
+	string getSection( )
 	{
 		return section;
 	}
@@ -74,7 +74,7 @@ public:
 	{
 		CRN = CRNSetter;
 	}
-	void setSection(int sectionSetter )
+	void setSection(string sectionSetter )
 	{
 		section = sectionSetter;
 	}
@@ -126,6 +126,6 @@ public:
 
 	void setAllValues( string rawInput[16], ParseInfo &parser, CommonInfo *link );//sets all members to passed in value
 	void checkForLink( CourseInfo toCompare );// checks for same CRN
-	bool checkForConflict( CourseInfo toCompare );	//Checks for time conflict
+	bool checkForConflict( CourseInfo toCompare );	//Checks for time conflicts
 	friend ostream &operator<<( ostream &stream, CourseInfo toOutput );//Overloaded output operator for testing
 };
