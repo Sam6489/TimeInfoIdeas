@@ -23,7 +23,7 @@ public:
 	{
 		if ( myCourses != nullptr )
 		{
-			delete[] myCourses;
+			delete myCourses;
 		}
 	}
 

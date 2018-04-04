@@ -24,12 +24,19 @@ int main( )
 //fill: reads, parses, and passes correct data onto CommonInfo & CourseInfo
 void AllData:: fill( )
 {
+	cout << "Testing strings" << endl;
+	string test = "SupDude";
+	string test2;
+	test2 = test;
+
+	cout << "In fill" << endl;
 	string rawCourseData[MAX];// whole file in one array
 	string myArray[16];// one line of file split into 16 element array
 	ParseInfo parser;// object of ParseInfo class for splitting apart file and converting from string to int
 	CommonInfo *link;// pointer for passing link from 
 	int CRS, CRN, section, credits, startT, endT, capacity;// All elements that will need to be converted from string to int to be stored
 
+	cout << "Opening file" << endl;
 	ifstream getcourseinfo;
 	getcourseinfo.open( "MasterFile.csv" );
 	getline( getcourseinfo, rawCourseData[courseInfoSize] );
@@ -38,12 +45,14 @@ void AllData:: fill( )
 		courseInfoSize++;
 		getline( getcourseinfo, rawCourseData[courseInfoSize] );
 	}
+	cout << "About to create array" << endl;
 	//Reading in and storing 1st element
 	myCourses = new CourseInfo[courseInfoSize];
+	cout << "Created array" << endl;
 	parser.parseAll( myArray, rawCourseData[1] );
 	CRS = parser.stringToNumber( myArray[2] );
 	CRN = parser.stringToNumber( myArray[0] );
-	section = parser.stringToNumber( myArray[3] );
+	//section = parser.stringToNumber( myArray[3] );
 	credits = parser.stringToNumber( myArray[5] );
 	startT = parser.stringToNumber( myArray[7] );
 	endT = parser.stringToNumber( myArray[8] );
@@ -54,6 +63,7 @@ void AllData:: fill( )
 	//Reading in and storing rest of file
 	for ( int i = 1; i < courseInfoSize - 1; i++ )
 	{
+		cout << "Storing info" << endl;
 		parser.parseAll( myArray, rawCourseData[i + 1] );
 		CRS = parser.stringToNumber( myArray[2] );
 		CRN = parser.stringToNumber( myArray[0] );

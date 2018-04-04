@@ -115,7 +115,7 @@ public:
 	CourseInfo( )
 	{
 		CRN = -1;
-		section = -1;
+		section = "";
 		days = "NULL";
 		startT = -1;
 		endT = -1;		
