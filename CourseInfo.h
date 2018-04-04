@@ -126,5 +126,6 @@ public:
 
 	void setAllValues( string rawInput[16], ParseInfo &parser, CommonInfo *link );//sets all members to passed in value
 	void checkForLink( CourseInfo toCompare );// checks for same CRN
+	bool checkForConflict( CourseInfo toCompare );	//Checks for time conflict
 	friend ostream &operator<<( ostream &stream, CourseInfo toOutput );//Overloaded output operator for testing
 };

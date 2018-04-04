@@ -28,6 +28,14 @@ void CourseInfo::checkForLink( CourseInfo toCompare )
 	}
 }
 
+//Compares two TimeInfo objects to check if they overlap (True if conflict, false if no conflict)
+//toCompare: The other CourseInfo object that is being compared to this object
+bool CourseInfo::checkForConflict( CourseInfo toCompare )
+{
+	bool toReturn = time.checkForConflict( toCompare.time );
+	return toReturn;
+}
+
 //Overloaded CourseInfo output operator for testing
 ostream &operator<<( ostream &stream, CourseInfo toOutput )
 {
