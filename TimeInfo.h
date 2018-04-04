@@ -33,11 +33,13 @@ public:
 		//Fills variables w/ same code as overloaded constructor
 	void fillAll( string sdate, string edate, int stime, int etime, string days );
 
-	bool dateConflict( TimeInfo otherDate );
+	bool dateConflict( TimeInfo otherDate );		//Checks for conflicting dates
 
-	bool timeConflict( TimeInfo otherTime );
+	bool timeConflict( TimeInfo otherTime );		//Checks for conflicting times
 
-	bool weekConflict( TimeInfo otherWeek );
+	bool weekConflict( TimeInfo otherWeek );		//Checks for overlapping week days
+
+	bool checkForConflict( TimeInfo toCompare );	//Checks for all possible conflicts
 };
 
 TimeInfo::TimeInfo( )
@@ -224,6 +226,20 @@ bool TimeInfo::weekConflict( TimeInfo otherWeek )
 			toReturn = true;
 			i = 7;
 		}
+	}
+	return toReturn;
+}
+
+bool TimeInfo::checkForConflict( TimeInfo toCompare )
+{
+	bool toReturn;
+	if ( dateConflict( toCompare ) && weekConflict( toCompare ) && timeConflict( toCompare ) )
+	{
+		toReturn = true;
+	}
+	else
+	{
+		toReturn = false;
 	}
 	return toReturn;
 }
