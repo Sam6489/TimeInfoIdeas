@@ -34,6 +34,8 @@ public:
 	void fillAll( string sdate, string edate, int stime, int etime, string days );
 
 	bool dateConflict( TimeInfo otherDate );
+
+	bool timeConflict( TimeInfo otherTime );
 };
 
 TimeInfo::TimeInfo( )
@@ -188,5 +190,23 @@ bool TimeInfo::dateConflict( TimeInfo otherDate )
 		toReturn = false;
 	}
 
+	return toReturn;
+}
+
+bool TimeInfo::timeConflict( TimeInfo otherTime )
+{
+	bool toReturn;
+	if ( stime <= otherTime.etime )
+	{
+		toReturn = true;
+	}
+	else if ( etime >= otherTime.stime )
+	{
+		toReturn = true;
+	}
+	else
+	{
+		toReturn = false;
+	}
 	return toReturn;
 }
