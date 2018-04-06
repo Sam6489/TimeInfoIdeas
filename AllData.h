@@ -67,5 +67,12 @@ public:
 
 	void fill( );// fills array of CourseInfo & list of CommonInfo
 	void linkCheck( );//checks for same crn
+	void fillClassRooms( )
+	{
+		for ( int i = 0; i < roomInfoSize - 1; i++ )
+		{
+			myRooms[i].fillCourses( myCourses, courseInfoSize );
+		}
+	}
 	void printContents( );//outputs contents of CommonInfo & CourseInfo
 };

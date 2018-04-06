@@ -12,6 +12,7 @@ int main( )
 	myData.fill( );
 	myData.linkCheck( );
 	myData.printContents( );
+	myData.fillClassRooms( );
 	cout << "Everything output above comes from the objects that data has been read into, and not just output from the file." << endl;	
 	cout << "Number of CourseInfo Objects (Unique): " << myData.getCourseInfoSize( )-1 << endl;
 	cout << "Number of CommonInfo Objects (General): " << myData.getMyCommons( )->getNumNodes( ) << endl;
